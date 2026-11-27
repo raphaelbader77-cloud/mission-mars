@@ -1,0 +1,106 @@
+[
+  [
+    1,
+    "Alex Chen",
+    "Engineer",
+    8,
+    true,
+    "cleared"
+  ],
+  [
+    2,
+    "Sarah Miller",
+    "Engineer",
+    12,
+    true,
+    "cleared"
+  ],
+  [
+    3,
+    "James Wilson",
+    "Pilot",
+    6,
+    true,
+    "cleared"
+  ],
+  [
+    4,
+    "Maya Reyes",
+    "Scientist",
+    9,
+    true,
+    "cleared"
+  ],
+  [
+    5,
+    "Emma Brooks",
+    "Scientist",
+    7,
+    false,
+    "cleared"
+  ],
+  [
+    6,
+    "Daniel Kim",
+    "Doctor",
+    10,
+    true,
+    "cleared"
+  ],
+  [
+    7,
+    "Lucas Martin",
+    "Pilot",
+    3,
+    true,
+    "pending"
+  ],
+  [
+    8,
+    "Sofia Rossi",
+    "Engineer",
+    4,
+    true,
+    "cleared"
+  ],
+  [
+    9,
+    "Noah Davis",
+    "Doctor",
+    5,
+    false,
+    "cleared"
+  ],
+  [
+    10,
+    "Lena Fischer",
+    "Scientist",
+    11,
+    true,
+    "pending"
+  ],
+  [
+    11,
+    "Oliver Brown",
+    "Pilot",
+    15,
+    true,
+    "cleared"
+  ],
+  [
+    12,
+    "Amira Hassan",
+    "Engineer",
+    6,
+    true,
+    "cleared"
+  ],
+  [
+    13,
+    "Ines Costa",
+    "Engineer",
+    9,
+    false,
+    "cleared"
+  ]
+]

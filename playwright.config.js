@@ -1,4 +1,8 @@
 import { defineConfig } from "@playwright/test";
+
+const base = "/mission-mars/";
+const url = `http://127.0.0.1:4190${base}`;
+
 export default defineConfig({
   testDir: "tests",
   testMatch: "**/*.spec.js",
@@ -9,12 +13,13 @@ export default defineConfig({
     launchOptions: {
       executablePath: process.env.MARS_TEST_CHROMIUM || undefined,
     },
-    baseURL: "http://127.0.0.1:4190",
+    baseURL: url,
     viewport: { width: 1280, height: 850 },
   },
   webServer: {
-    command: "npm run preview -- --host 127.0.0.1 --port 4190 --strictPort",
-    url: "http://127.0.0.1:4190",
+    command: `node node_modules/vite/bin/vite.js preview --host 127.0.0.1 --port 4190 --strictPort --base ${base}`,
+    url,
     reuseExistingServer: false,
+    gracefulShutdown: { signal: "SIGINT", timeout: 5000 },
   },
 });

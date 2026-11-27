@@ -1,0 +1,8 @@
+node_modules/
+dist/
+public/vendor/
+__pycache__/
+test-results/
+playwright-report/
+.venv/
+/Mission-Mars-Chapter-1.zip

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Database basics",
+    "explanation": "A database keeps related information together. A table holds one kind of record. In astronauts, each row describes one person and each column describes one attribute. SQL is the language we use to ask the database questions.",
+    "syntax": "table → row → column",
+    "example": "SELECT name FROM astronauts;",
+    "mistake": "A row is one candidate. A column such as role describes every candidate.",
+    "url": "https://www.w3schools.com/sql/sql_intro.asp"
+  },
+  {
+    "id": 2,
+    "name": "SELECT · FROM",
+    "explanation": "SELECT chooses what to display. FROM tells PostgreSQL which table to read. An asterisk means every column.",
+    "syntax": "SELECT * FROM table_name;",
+    "example": "SELECT * FROM astronauts WHERE id = 1;",
+    "mistake": "Spell the table name exactly. An asterisk belongs after SELECT.",
+    "url": "https://www.w3schools.com/sql/sql_select.asp"
+  },
+  {
+    "id": 3,
+    "name": "Selecting columns",
+    "explanation": "List the column names after SELECT in the order you want to read them. Separate each name with a comma.",
+    "syntax": "SELECT column_a, column_b FROM table_name;",
+    "example": "SELECT id, experience FROM astronauts;",
+    "mistake": "A comma goes between columns. A trailing comma before FROM is unnecessary.",
+    "url": "https://www.w3schools.com/sql/sql_select.asp"
+  },
+  {
+    "id": 4,
+    "name": "DISTINCT",
+    "explanation": "DISTINCT keeps one copy of each combination of values in the selected columns. Selecting a unique ID as well would keep every astronaut.",
+    "syntax": "SELECT DISTINCT column_name FROM table_name;",
+    "example": "SELECT DISTINCT medical_status FROM astronauts;",
+    "mistake": "DISTINCT applies to the entire selected row. Choose only the columns you want to deduplicate.",
+    "url": "https://www.w3schools.com/sql/sql_distinct.asp"
+  },
+  {
+    "id": 5,
+    "name": "WHERE",
+    "explanation": "WHERE tests each record. A row appears only when the condition is true. Surround text values with single quotes.",
+    "syntax": "SELECT * FROM table_name WHERE column_name = 'value';",
+    "example": "SELECT * FROM astronauts WHERE role = 'Pilot';",
+    "mistake": "Use 'Pilot' for text. Double quotes identify a column or table in PostgreSQL.",
+    "url": "https://www.w3schools.com/sql/sql_where.asp"
+  },
+  {
+    "id": 6,
+    "name": "Comparison operators",
+    "explanation": "Use = for equal, <> or != for different, < and > for strict limits, and <= or >= to include the boundary. Experience is measured in years.",
+    "syntax": "SELECT * FROM table_name WHERE number_column >= number;",
+    "example": "SELECT name FROM astronauts WHERE experience < 5;",
+    "mistake": "At least includes the number itself. A strict > would drop candidates at the boundary.",
+    "url": "https://www.w3schools.com/sql/sql_operators.asp"
+  },
+  {
+    "id": 7,
+    "name": "AND",
+    "explanation": "AND requires both conditions to hold on the same row. Add another AND to require a third condition. Boolean values TRUE and FALSE can be written without quotes.",
+    "syntax": "SELECT * FROM table_name WHERE condition_a AND condition_b;",
+    "example": "SELECT * FROM astronauts WHERE role = 'Pilot' AND available = TRUE;",
+    "mistake": "Every condition needs its own comparison or Boolean expression.",
+    "url": "https://www.w3schools.com/sql/sql_and.asp"
+  },
+  {
+    "id": 8,
+    "name": "OR",
+    "explanation": "OR accepts a row when at least one of its conditions is true. Repeat the column comparison on each side.",
+    "syntax": "SELECT * FROM table_name WHERE condition_a OR condition_b;",
+    "example": "SELECT name FROM astronauts WHERE role = 'Pilot' OR role = 'Engineer';",
+    "mistake": "Writing role = 'Pilot' OR 'Doctor' leaves the second condition incomplete.",
+    "url": "https://www.w3schools.com/sql/sql_or.asp"
+  },
+  {
+    "id": 9,
+    "name": "NOT",
+    "explanation": "NOT reverses a condition. Parentheses make the scope clear. With non-null values, NOT (a = b) and a <> b select the same rows.",
+    "syntax": "SELECT * FROM table_name WHERE NOT (condition);",
+    "example": "SELECT name FROM astronauts WHERE NOT (available = TRUE);",
+    "mistake": "NOT around a whole pair of conditions reverses the pair. Use parentheses to show your intention.",
+    "url": "https://www.w3schools.com/sql/sql_not.asp"
+  },
+  {
+    "id": 10,
+    "name": "Combined conditions",
+    "explanation": "Build your filter one condition at a time. PostgreSQL evaluates NOT before AND, then OR. Group alternatives in parentheses when a restriction applies to both.",
+    "syntax": "SELECT a, b FROM table_name WHERE (test_a OR test_b) AND test_c;",
+    "example": "SELECT name FROM astronauts WHERE (role = 'Pilot' OR role = 'Doctor') AND available;",
+    "mistake": "Check the requested columns, availability, clearance and the experience boundary separately.",
+    "url": "https://www.w3schools.com/sql/sql_operators.asp"
+  }
+]
