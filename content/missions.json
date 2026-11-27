@@ -1,0 +1,188 @@
+[
+  {
+    "id": 1,
+    "title": "Welcome, Commander",
+    "kind": "Orientation",
+    "speaker": "nova",
+    "dialogue": "I am NOVA, your onboard computer. This roster is our first link to the people who will fly with you.",
+    "task": "Inspect one candidate and one attribute in the crew roster.",
+    "solution": null,
+    "hints": [],
+    "reward": "Roster link established.",
+    "guide": 1,
+    "scene": "launchpad",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 2,
+    "title": "Access the Database",
+    "kind": "Tutorial",
+    "speaker": "morgan",
+    "dialogue": "Before we assign a single seat, I want to see the complete flight roster.",
+    "task": "Display all columns and records from the astronauts table.",
+    "solution": "SELECT *\nFROM astronauts;",
+    "hints": [
+      "Read the entire roster, including every attribute.",
+      "SELECT * FROM …",
+      "SELECT *\nFROM astronauts;"
+    ],
+    "reward": "Full roster received.",
+    "guide": 2,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 3,
+    "title": "Know Your Candidates",
+    "kind": "Practice",
+    "speaker": "nova",
+    "dialogue": "The flight badges have room for two fields. Send me a name and a role for each candidate.",
+    "task": "Display the name and role of every astronaut, in that column order.",
+    "solution": "SELECT name, role\nFROM astronauts;",
+    "hints": [
+      "Choose just the two fields that fit on a badge.",
+      "SELECT name, … FROM astronauts;",
+      "SELECT name, role\nFROM astronauts;"
+    ],
+    "reward": "Candidate badges printed.",
+    "guide": 3,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 4,
+    "title": "Available Specialists",
+    "kind": "Tutorial",
+    "speaker": "morgan",
+    "dialogue": "Which specialties can this mission draw on? One entry per profession will do.",
+    "task": "Display all unique astronaut roles. Use DISTINCT.",
+    "solution": "SELECT DISTINCT role\nFROM astronauts;",
+    "hints": [
+      "Choose role alone, then remove duplicate results.",
+      "SELECT DISTINCT … FROM astronauts;",
+      "SELECT DISTINCT role\nFROM astronauts;"
+    ],
+    "reward": "Specialist directory online.",
+    "guide": 4,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": true
+  },
+  {
+    "id": 5,
+    "title": "Finding an Engineer",
+    "kind": "Tutorial",
+    "speaker": "chen",
+    "dialogue": "The survey lander needs someone who can rebuild a power bus in gloves. Pull up our engineers.",
+    "task": "Find all astronauts whose role is Engineer. Return every column.",
+    "solution": "SELECT * FROM astronauts\nWHERE role = 'Engineer';",
+    "hints": [
+      "Filter the role column using an exact text value.",
+      "WHERE role = '…'",
+      "SELECT * FROM astronauts\nWHERE role = 'Engineer';"
+    ],
+    "reward": "Engineering candidates located.",
+    "guide": 5,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 6,
+    "title": "Experienced Astronauts",
+    "kind": "Tutorial",
+    "speaker": "morgan",
+    "dialogue": "Outpost Nine stopped transmitting mid-shift. We need people who can recognise trouble early.",
+    "task": "Find all astronauts with at least 8 years of experience. Return every column.",
+    "solution": "SELECT * FROM astronauts\nWHERE experience >= 8;",
+    "hints": [
+      "Someone with exactly eight years qualifies.",
+      "WHERE experience >= …",
+      "SELECT * FROM astronauts\nWHERE experience >= 8;"
+    ],
+    "reward": "Experience records verified.",
+    "guide": 6,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 7,
+    "title": "The Perfect Candidate",
+    "kind": "Tutorial",
+    "speaker": "chen",
+    "dialogue": "An experienced engineer on another assignment cannot fly with us. Check all three criteria.",
+    "task": "Find available engineers with at least 5 years of experience. Return every column.",
+    "solution": "SELECT * FROM astronauts\nWHERE role = 'Engineer'\n  AND experience >= 5\n  AND available = TRUE;",
+    "hints": [
+      "Require the correct role, experience and availability simultaneously.",
+      "WHERE role = 'Engineer' AND … AND available",
+      "SELECT * FROM astronauts\nWHERE role = 'Engineer'\n  AND experience >= 5\n  AND available = TRUE;"
+    ],
+    "reward": "Engineering watch confirmed.",
+    "guide": 7,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 8,
+    "title": "Scientific Expertise",
+    "kind": "Tutorial",
+    "speaker": "reyes",
+    "dialogue": "We will need two kinds of expertise on the surface. Show me everyone from science or medicine.",
+    "task": "Find all astronauts who are scientists or doctors. Return every column.",
+    "solution": "SELECT * FROM astronauts\nWHERE role = 'Scientist'\n   OR role = 'Doctor';",
+    "hints": [
+      "Each person has one role. Either of the two requested roles qualifies.",
+      "WHERE role = 'Scientist' OR role = …",
+      "SELECT * FROM astronauts\nWHERE role = 'Scientist'\n   OR role = 'Doctor';"
+    ],
+    "reward": "Science and medical teams briefed.",
+    "guide": 8,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 9,
+    "title": "Medical Clearance",
+    "kind": "Tutorial",
+    "speaker": "nova",
+    "dialogue": "Medical review is still open for some candidates. Exclude their files from this transmission.",
+    "task": "Find all astronauts whose medical status is not pending. Return every column.",
+    "solution": "SELECT * FROM astronauts\nWHERE NOT (medical_status = 'pending');",
+    "hints": [
+      "Reverse the condition that identifies a pending file.",
+      "WHERE NOT (medical_status = …)",
+      "SELECT * FROM astronauts\nWHERE NOT (medical_status = 'pending');"
+    ],
+    "reward": "Medical review complete.",
+    "guide": 9,
+    "scene": "control",
+    "ordered": false,
+    "requiresDistinct": false
+  },
+  {
+    "id": 10,
+    "title": "Assemble Your Crew",
+    "kind": "Challenge",
+    "speaker": "morgan",
+    "dialogue": "The manifest is yours, Commander. Give me the qualified candidates and we will assign four flight seats.",
+    "task": "Display the names and roles of available, medically cleared astronauts with at least 6 years of experience.",
+    "solution": "SELECT name, role FROM astronauts\nWHERE available = TRUE\n  AND medical_status = 'cleared'\n  AND experience >= 6;",
+    "hints": [
+      "First choose the two requested columns. Then test three flight requirements.",
+      "WHERE available AND medical_status = … AND experience >= …",
+      "SELECT name, role FROM astronauts\nWHERE available = TRUE\n  AND medical_status = 'cleared'\n  AND experience >= 6;"
+    ],
+    "reward": "Flight roster authorised.",
+    "guide": 10,
+    "scene": "launchpad",
+    "ordered": false,
+    "requiresDistinct": false
+  }
+]

@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 export default defineConfig({
   base: "./",
-  server: { host: "0.0.0.0", allowedHosts: true },
+  appType: "mpa",
   worker: { format: "es" },
   optimizeDeps: { exclude: ["@electric-sql/pglite"] },
   build: {

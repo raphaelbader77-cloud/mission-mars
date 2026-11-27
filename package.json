@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "predev": "node scripts/vendor.mjs",
-    "dev": "vite --host 0.0.0.0",
+    "dev": "vite",
     "prebuild": "node scripts/vendor.mjs",
     "build": "vite build",
     "preview": "vite preview",
